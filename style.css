@@ -45,7 +45,8 @@ span {
   -ms-grid-column-span: 4;
   grid-column: span 4;
   height: 100px;
-  width: 100%;
+  width: calc(100% - 20px);
+  left: 10px;
   border: none;
   outline: none;
   background: rgb(224, 241, 162);
@@ -64,6 +65,7 @@ span {
   width: 80px;
   height: 80px;
   margin: 8px;
+  place-items: center;
   color: #fff;
   background: -webkit-gradient(linear, left top, left bottom, from(#2f2f2f), to(#3f3f3f));
   background: linear-gradient(180deg, #2f2f2f, #3f3f3f);
@@ -76,20 +78,59 @@ span {
   cursor: pointer;
   font-size: 20px;
   font-weight: normal;
+  border-radius: 10px;
 }
 .calculator span::before {
   content: "";
   position: absolute;
+  background: -webkit-gradient(linear, left top, right top, from(#2d2d2d), to(#4d4d4d));
+  background: linear-gradient(90deg, #2d2d2d, #4d4d4d);
   top: 3px;
   left: 4px;
   bottom: 14px;
   right: 12px;
-  background: -webkit-gradient(linear, left top, right top, from(#2d2d2d), to(#4d4d4d));
-  background: linear-gradient(90deg, #2d2d2d, #4d4d4d);
+  border-radius: 10px;
+  -webkit-box-shadow: -5px -5px 15px rgba(0, 0, 0, 0.1), 10px 5px 10px rgba(0, 0, 0, 0.15);
+          box-shadow: -5px -5px 15px rgba(0, 0, 0, 0.1), 10px 5px 10px rgba(0, 0, 0, 0.15);
+  border-left: 1px solid rgba(0, 0, 0, 0.2666666667);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2666666667);
+  border-top: 1px solid rgba(0, 0, 0, 0.6);
 }
 .calculator span i {
   position: relative;
   font-style: normal;
   font-size: 1.5rem;
   text-transform: uppercase;
+}
+.calculator span:active {
+  -webkit-filter: brightness(1.5);
+          filter: brightness(1.5);
+}
+.calculator .reset {
+  -ms-grid-column-span: 2;
+  grid-column: span 2;
+  width: 180px;
+  background: #f00;
+}
+.calculator .reset::before {
+  background: -webkit-gradient(linear, left top, right top, from(#d20000), to(rgba(255, 255, 255, 0.3607843137)));
+  background: linear-gradient(90deg, #d20000, rgba(255, 255, 255, 0.3607843137));
+  border-top: 1px solid rgba(255, 255, 255, 0.2666666667);
+  border-left: 1px solid rgba(255, 255, 255, 0.2666666667);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2666666667);
+}
+.calculator .plusBtn {
+  -ms-grid-row-span: 2;
+  grid-row: span 2;
+  height: 180px;
+}
+.calculator .equalBtn {
+  background: #2196f3;
+}
+.calculator .equalBtn::before {
+  background: -webkit-gradient(linear, left top, right top, from(#1479c9), to(rgba(255, 255, 255, 0.3607843137)));
+  background: linear-gradient(90deg, #1479c9, rgba(255, 255, 255, 0.3607843137));
+  border-top: 1px solid rgba(255, 255, 255, 0.2666666667);
+  border-left: 1px solid rgba(255, 255, 255, 0.2666666667);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2666666667);
 }

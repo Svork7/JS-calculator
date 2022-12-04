@@ -37,7 +37,8 @@ span {
     position: relative;
     grid-column: span 4;
     height: 100px;
-    width: 100%;
+    width: calc(100% - 20px);
+    left: 10px;
     border: none;
     outline: none;
     background: rgb(224, 241, 162);
@@ -48,12 +49,14 @@ span {
     padding: 10px;
     font-size: 2rem;
   }
+
   span {
     position: relative;
     display: grid;
     width: 80px;
     height: 80px;
     margin: 8px;
+    place-items: center;
     color: #fff;
     background: linear-gradient(180deg, #2f2f2f, #3f3f3f);
     box-shadow: inset -8px 0 8px rgba(0, 0, 0, 0.15),
@@ -63,20 +66,58 @@ span {
     cursor: pointer;
     font-size: 20px;
     font-weight: normal;
+    border-radius: 10px;
     &::before {
       content: '';
       position: absolute;
+      background: linear-gradient(90deg, #2d2d2d, #4d4d4d);
       top: 3px;
       left: 4px;
       bottom: 14px;
       right: 12px;
-      background: linear-gradient(90deg, #2d2d2d, #4d4d4d);
+      border-radius: 10px;
+      box-shadow: -5px -5px 15px rgba(0, 0, 0, 0.1),
+        10px 5px 10px rgba(0, 0, 0, 0.15);
+      border-left: 1px solid #0004;
+      border-bottom: 1px solid #0004;
+      border-top: 1px solid #0009;
     }
+
     i {
       position: relative;
       font-style: normal;
       font-size: 1.5rem;
       text-transform: uppercase;
+    }
+
+    &:active {
+      filter: brightness(1.5);
+    }
+  }
+  .reset {
+    grid-column: span 2;
+    width: 180px;
+    background: #f00;
+
+    &::before {
+      background: linear-gradient(90deg, #d20000, #ffffff5c);
+      border-top: 1px solid #fff4;
+      border-left: 1px solid #fff4;
+      border-bottom: 1px solid #fff4;
+    }
+  }
+  .plusBtn {
+    grid-row: span 2;
+    height: 180px;
+  }
+
+  .equalBtn {
+    background: #2196f3;
+    &::before {
+      background: linear-gradient(90deg, #1479c9, #ffffff5c);
+      border-top: 1px solid #fff4;
+      border-left: 1px solid #fff4;
+      border-bottom: 1px solid #fff4;
     }
   }
 }
